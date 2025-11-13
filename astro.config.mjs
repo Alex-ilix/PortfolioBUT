@@ -1,32 +1,6 @@
-// @ts-check
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import astroIcon from 'astro-icon';
-import mdx from '@astrojs/mdx';
-import playformCompress from "@playform/compress";
-import vercel from "@astrojs/vercel/serverless";
+import { defineConfig } from 'astro/config';
 
-// https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    mdx(),
-    astroIcon({
-      include: {
-        mdi: ["*"],
-        ri: ['*'],
-        'simple-icons': ['*'],
-      },
-    }),
-    playformCompress({
-      CSS: false,
-      Image: false,
-      Action: {
-        Passed: async () => true,  
-      },
-    })
-  ],
-  output: 'server',
-  adapter: vercel(),
-  
+  site: 'https://alex-ilix.github.io/PortfolioBUT/',
+  base: '/PortfolioBUT/', // très important pour que les chemins des fichiers CSS/JS soient corrects
 });
